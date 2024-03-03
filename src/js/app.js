@@ -2,8 +2,37 @@ document.addEventListener('DOMContentLoaded', function(){
     iniciarapp();
 });
 
-function iniciarapp(){ //mandando a llamar la galeria
+function iniciarapp(){ //mandando a llamar las funciones
+    navegacionFija();
     crearGaleria();
+    scrollNav();
+}
+
+function navegacionFija(){
+    const barra = document.querySelector('.header');
+    const sobreFestival = document.querySelector('.sobre-festival');
+    const body = document.querySelector('body');
+    window.addEventListener('scroll', function(){
+        if(sobreFestival.getBoundingClientRect().top < 0){
+            barra.classList.add('fijo');
+            body.classList.add('body-scroll');
+        }else{
+            barra.classList.remove('fijo');
+            body.classList.remove('body-scroll');
+        }
+    });
+}
+
+function scrollNav(){ //funcion para cuando se de click en algun enlace del lineup el navegador lo dirija a esa seccion de la pagina
+    const enlaces = document.querySelectorAll('.navegacion-principal a');
+    enlaces.forEach(enlace => {
+        enlace.addEventListener ('click', function(e){
+            e.preventDefault(); //para eliminar el comportamiento por defecto del navegador de guiar al usuario de golpe a la seccion de la pagina
+            const seccionScroll=e.target.attributes.href.value; //configurando el nuevo comportamiento para que no lleve al usuario de golpe a la seccion de la pagina
+            const seccion = document.querySelector(seccionScroll);
+            seccion.scrollIntoView({behavior: "smooth"});
+        })
+    });
 }
 
 function crearGaleria(){ //creando la funcion para la galeria

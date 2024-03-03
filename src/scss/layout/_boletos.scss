@@ -1,2 +1,64 @@
 @use 'base/variables' as v;
 @use 'base/mixins' as m;
+
+.boletos {
+    padding: 5rem 0;
+    h3{
+        text-align: center;
+        color: v.$blanco;
+        margin-bottom: 2rem;
+    }
+
+    .contenedor-boletos{
+        @include m.tablet{
+            @include m.grid (2, 5rem);
+        }
+    }
+}
+
+.pase { //pase-header, pase-body, pase-footer comparten el mismo inicio de palabara que es pase el cual es el nombre de la clase padre, se pueden reemplazar por & al inicio
+    color: black;
+    .nombre-pase{
+        text-align: center;
+        font-size: 2.7rem;
+        color: v.$blanco;
+    }
+    &-header,
+    &-footer{
+        padding: .5rem;
+        
+        p{
+        text-align: center;
+        color: v.$blanco;
+        margin: 0;
+        }
+    }
+
+    &-header{
+        background-color: v.$rosa;
+        p{
+            text-transform: uppercase;
+        }
+    }
+
+    &-body{
+        background-color: v.$blanco;
+        ul{
+            @include m.resetear-lista;
+            li, :nth-child(odd){ //para eliminar el odd el cual selecciona un elemento impar que le cambiaba el color y que unicamente le aplique el color que le estoy dando
+                background-color: v.$blanco;
+                font-weight: 700;
+                padding: 1.5rem;
+                border-bottom: 1px solid #e1e1e1; //para añadir la linea de abajo del listado
+            }
+        }
+    }
+
+    &-footer{
+        background-color: v.$morado;
+        p{
+            font-family: 2.7rem;
+        }
+    }
+
+}

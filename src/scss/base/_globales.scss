@@ -13,8 +13,11 @@ html {
 body {
     font-family: v.$fuente__principal;
     font-size: 1.6rem;
-    &.fijar-body{ //para que al abrir una imagen se agregue la clase fijar body
+    &.fijar-body{ //para que al abrir una imagen se agregue la clase fijar body se agrego previamente en js
         overflow: hidden; //para que no se pueda realizar scroll y la imagen quede fija
+    }
+    &.body-scroll{
+        padding-top: 8.6rem;
     }
 }
 
