@@ -1,0 +1,74 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.lineup{
+    background-color: v.$rosa;
+    padding: 5rem 0;
+    h3, p {
+        text-align: center;
+        color: v.$blanco;
+    }
+}
+
+
+
+.dia{
+    text-transform: uppercase;
+    margin: 5rem 0;
+}
+
+.escenarios-contenedor{
+    @include m.tablet{
+        @include m.grid(2, 5rem);
+    }
+    p{
+        color: v.$negro;
+    }
+}
+    .escenario{
+        padding-top: 2rem;
+
+    p{
+        &:after{
+            content: ''; //siempre que se tenga & se debe utilizar un content
+            display: block;
+            width: 20rem;
+            height:10rem;
+            background-size: 15rem; //para el tamaño de la imagen que se va a insertar
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin: 2rem auto 0 auto; //para que la imagen quede centrada y tenga un poco de espacio con el contenido del texto
+        }
+    }
+}
+
+.edm .nombre-escenario:after{
+    background-image: url(../img/icono_edm.png);
+} 
+.rock .nombre-escenario:after{
+    background-image: url(../img/icono_rock.png);
+} 
+
+.calendario{
+    @include m.resetear-lista;
+    li{
+    padding: 2.5rem;
+    font-weight:700; //para que el texto de la hora este en negrita
+    span{
+        font-weight:400;
+    }
+    }
+}
+
+.bg-amarillo{
+    background-color: v.$amarillo;
+    li:nth-child(odd){ //nth-child(odd) es para seleccionar elementos impares
+        background-color: darken(v.$amarillo, 10%); //propiedad de SASS para volver un elemento de un color mas oscuro al original toma el parametro del color y el porcentaje que se va a oscurecer
+    }
+}
+.bg-verde{
+    background-color: v.$verde;
+    li:nth-child(odd){
+        background-color:darken(v.$verde, 10%);
+    }
+}

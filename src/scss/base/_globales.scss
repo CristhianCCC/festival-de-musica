@@ -1,0 +1,59 @@
+
+@use'variables' as v; //as v es para no tener que estar nombrando todo el tiempo la variable, en este ejemplo la clase body esta invocando el font family del archivo de variables y se puede invocar con tan solo la letra v
+html {
+    font-size: 62.5%; //para que 1rem = 10px
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after{
+    box-sizing: inherit;
+}
+
+body {
+    font-family: v.$fuente__principal;
+    font-size: 1.6rem;
+    &.fijar-body{ //para que al abrir una imagen se agregue la clase fijar body
+        overflow: hidden; //para que no se pueda realizar scroll y la imagen quede fija
+    }
+}
+
+p {
+    font-size: 2rem;
+    color: v.$negro;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.contenedor {
+    width: 95%; //para que no tome todo el ancho de pantalla
+    max-width: 120rem;
+    margin: 0 auto; //para centrarlo horizontalmente
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3 {
+    margin: 0 0 5rem 0; //0 arriba, 0 derecho, 5 abajo y 0 izquierdo
+}
+
+h1{
+    font-size: 4rem;
+}
+
+h2{
+    font-size: 3.6rem;
+}
+
+h3{
+    font-size: 3rem;
+}
+
+img{
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    display:block;
+}

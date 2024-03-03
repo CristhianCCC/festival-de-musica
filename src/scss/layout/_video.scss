@@ -1,0 +1,47 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.video{
+    position: relative;
+    max-height: 70rem; //para disminuir el tamaño que toma en pantalla
+    min-height: 50rem;
+    overflow: hidden; //para que el video y el overlay tomen el atributo de max-height juntos y se ajusten AMBOS al tamaño de la pantalla 
+
+    .overlay {
+        position: absolute;
+        background: rgb(2,0,36); 
+        background: linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(222,0,255,0.5) 100%); //para que el overlay tenga de fondo este color y se reemplace por el color del video 
+        height: 100%; //para que tome todo el espacio disponible
+        width: 100%; //para que tome todo el espacio disponible
+        display: flex; 
+        flex-direction: column; //para alinear el texto del video 
+        justify-content: center;
+    }
+
+    video{
+        width: auto;
+        display: block; //para que el gradient del overlay tome todo el espacio reemplazando asi el color del video
+        @include m.desktop{
+            width: 100%; //para que el contenido que se pondra encima del video (overlay) tome todo el espacio disponible el video tiene que tomar todo el espacio disponible
+        }
+    }
+
+}
+
+.contenido-video{
+    z-index: 10; //para poner el texto por encima del video y asi tener la opcion de seleccionar el texto
+    h2{
+        color: v.$blanco;
+        font-size: 7rem;
+        margin: 0;
+    }
+    p{
+        background-color: v.$rosa;
+        display: inline-block; //para que el background no tome todo el ancho de la pantalla sino que tome unicamente lo necesario
+        padding: 1rem 2rem;
+        color: v.$blanco;
+        font-weight: 700; //para aumentar un poco el tamaño de la letra
+        font-size: 2.4rem;
+        margin: 0;
+    }
+}

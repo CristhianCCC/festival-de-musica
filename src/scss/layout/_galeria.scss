@@ -1,0 +1,58 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.galeria {
+    padding: 5rem 0;
+    .galeria-titulo{
+        text-align: center;
+    }
+}
+
+.galeria-imagenes{
+    @include m.resetear-lista;
+    @include m.grid (2, 2rem); //se ve bien en dispositivo pequeño
+    @include m.telefono{
+        @include m.grid(3, 2rem);
+    }
+    @include m.tablet{
+        @include m.grid(4, 2rem);
+    }
+    @include m.desktop{
+        @include m.grid(6, 2rem);
+    }
+}
+
+.overlay {
+    position: fixed; //para mostrar la imagen en pantalla y se quede fija .overlay es una clase declarada en js 
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+
+    display: grid; //para centrar la imagen
+    place-items: center; //propiedad de grid para ajustar tanto vertical como horizontalmente y que el elemento quede en el medio de la pantalla
+    background-color: rgba(0,0,0,.5); //para oscurecer el fondo de la imagen
+
+    picture { //va a aplicar a la etiqueta de la imagen directamente
+        display: block; //para ajustar el tamaño de la imagen
+        max-width: 80rem; //para ajustar el tamaño de la imagen
+
+    }
+}
+
+.btn-cerrar{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: v.$blanco;
+    color: v.$negro;
+    display: grid;
+    place-items: center; //para centrar la 'X' del boton en el circulo blanco
+    font-weight: 900;
+
+    &:hover{
+        cursor: pointer;
+    }
+}

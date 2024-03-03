@@ -1,0 +1,46 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+//la funcionalidad de sass es anidar las clases que se van creando de css
+.header {
+    background-color: v.$verde;
+
+    h1{
+        color: v.$blanco;
+        text-align: center;
+        @include m.tablet{
+            margin: 0;
+        }
+    }
+    .contenido-header{
+        @include m.tablet {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem;
+        }
+    }
+}
+
+.navegacion-principal{
+    @include m.tablet{ //propiedad include permite importar un mixin de media query
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+    }
+    a{
+        display:block;
+        text-align: center;
+        color: v.$blanco;
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+        @include m.tablet{
+            margin:0; 
+        }
+
+        &:hover{ //para este tipo de casos cuando el hover es necesario se utiliza el caracter &
+            color: v.$amarillo;
+        }
+    }
+}
+
+
+

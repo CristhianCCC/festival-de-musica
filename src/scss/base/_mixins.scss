@@ -1,0 +1,37 @@
+@use 'variables' as v;
+
+@mixin telefono{
+    @media (min-width: 480px) {
+        @content; //para reemplazar el contenido de donde se este mandando a llamar de manera automatica
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px){
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 992px){
+        @content;
+    }
+}
+
+@mixin desktopXL{
+    @media (min-width: 1200px){
+        @content;
+    }
+}
+
+@mixin grid($columnas, $espaciado){ //variable columnas para hacer mixin inteligente
+    display: grid; 
+    grid-template-columns: repeat($columnas, 1fr); //columnas toma el valor que se le asigne en la clase principal /festival.css  @include m.grid(2); donde 2 es el numero de columnas que se le asignaron
+    gap: $espaciado;
+}
+
+@mixin resetear-lista{
+    margin:0;
+    padding:0;
+    list-style: none;
+}

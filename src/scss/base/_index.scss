@@ -1,0 +1,5 @@
+@forward 'variables'; //forward es para llamar la otra carpeta y linkearlas entre si en el archivo de origen se pone @use para enviarlo al archivo principal y aqui es @forward
+@forward 'mixins';
+@forward 'normalize';
+@forward 'globales';
+
